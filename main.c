@@ -8,6 +8,7 @@
  * Return: 0 on success
  */
 int main(void)
+{
 
 	_printf("%c\n", 'H');
 	_printf("%s\n", "House");
