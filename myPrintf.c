@@ -30,8 +30,6 @@ int _printf(const char *format, ...)
 
 			else if (*format == 'd' || *format == 'i')
 				printf("%d", va_arg(argument, int));
-
-			format++;
 		}
 		else
 		{
