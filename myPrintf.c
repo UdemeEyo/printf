@@ -28,9 +28,9 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 				printf("%s", va_arg(argument, char *));
 			else if (*format == 'd' || *format == 'i')
-			{
-				printf("%d", va_arg(argument, int);
-						}
+		
+				printf("%d", va_arg(argument, int));
+					
 
 			format++;
 		}
