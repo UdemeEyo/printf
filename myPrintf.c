@@ -46,12 +46,6 @@ int _printf(const char *format, ...)
 				putchar('%');
 				length;
 			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				int num = va_arg(argument, int);
-
-				putchar(num);
-			}
 		}
 		else
 		{
