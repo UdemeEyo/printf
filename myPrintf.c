@@ -17,27 +17,49 @@ int _printf(const char *format, ...)
 
 	va_start(argument, format);
 
+	int length = 0;
+
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
 			if (*format == 'c')
-				printf("%c", va_arg(argument, int));
+			{
+				int ch = va_arg(argument, int);
 
+				putchar(ch);
+			}
 			else if (*format == 's')
-				printf("%s", va_arg(argument, char *));
+			{
+				char *string = va_arg(argument, char *);
 
+				while (*string != '\0')
+				{
+					putchar(*string);
+					string++;
+					length++;
+				}
+			}
+			else if (*format == '%')
+			{
+				putchar('%');
+				length;
+			}
 			else if (*format == 'd' || *format == 'i')
-				printf("%d", va_arg(argument, int));
+			{
+				int num = va_arg(argument, int);
+
+				putchar(num);
+			}
 		}
 		else
 		{
 			putchar(*format);
+			length++;
 		}
 		format++;
 	}
 	va_end(argument);
-
 	return (0);
 }
