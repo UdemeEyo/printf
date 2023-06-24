@@ -23,33 +23,20 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == 'c')
-			{
-				printf("%c", va_arg(argument, int));
-			}
+				putchar(va_arg(argument, int));
 			else if (*format == 's')
-			{
-				char *string = va_arg(argument, char *);
-
-				while (*string != '\0')
-				{
-					putchar(*string);
-					string++;
-					length++;
-				}
-			}
+				while (*format)
+					putchar(*format++);
 			else if (*format == '%')
-			{
 				putchar('%');
-				length++;
-			}
 		}
 		else
 		{
 			putchar(*format);
-			length++;
 		}
 		format++;
+		length++;
 	}
 	va_end(argument);
-	return (0);
+	return (length);
 }
