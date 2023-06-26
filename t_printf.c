@@ -31,6 +31,8 @@ int _printf(const char *format, ...)
 				pd_chars += handle_char(arguements);
 			else if (*format == 's')
 				pd_chars += handle_string(arguements);
+			else if (*format == 'd' || *format == 'i')
+				pd_chars += handle_integer(arguements);
 			else if (*format == '%')
 			{
 				putchar('%');
@@ -46,39 +48,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(arguements);
-	return (pd_chars);
-}
-
-/**
- * handle_char - handles the 'c' specifier
- * @args: list containing arguements
- * Return: number of printed characters
- */
-int handle_char(va_list args)
-{
-	int c = va_arg(args, int);
-
-	putchar(c);
-	return (1);
-}
-
-/**
- * handle_string - handiles the 's' specifier
- * @args: list containing arguements
- * Return: number of printed characters
- */
-int handle_string(va_list args)
-{
-	char *s = va_arg(args, char *);
-	int pd_chars = 0;
-
-	if (s == NULL)
-		s = "(null)";
-	while (*s != '\0')
-	{
-		putchar(*s);
-		s++;
-		pd_chars++;
-	}
 	return (pd_chars);
 }

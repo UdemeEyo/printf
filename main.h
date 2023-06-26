@@ -4,8 +4,9 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
-int main(void);
+int print_number(int num);
 int handle_string(va_list args);
 int handle_char(va_list args);
+int handle_integer(va_list args);
 
 #endif
