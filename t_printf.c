@@ -27,6 +27,11 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				break;
+			if (*format == 'b')
+			{
+				unsigned int num = va_arg(arguements, unsigned int);
+				pd_chars += print_binary(num);
+			}
 			if (*format == 'c')
 				pd_chars += handle_char(arguements);
 			else if (*format == 's')
