@@ -8,12 +8,13 @@
  * @format: pointer to the formats
  * @...: other unspecified parameters
  *
- * Return: Always 0 (success)
+ * Return: Always 0 success
  */
 
 int _printf(const char *format, ...)
 {
 	va_list argument;
+	int len = 0;
 
 	va_start(argument, format);
 
@@ -22,24 +23,30 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				break;
+
 			if (*format == 'c')
 				printf("%c", va_arg(argument, int));
+			len++;
 
 			else if (*format == 's')
 				printf("%s", va_arg(argument, char *));
+			len++;
 
 			else if (*format == 'd' || *format == 'i')
 				printf("%d", va_arg(argument, int));
-
-			format++;
+			len++;
 		}
 		else
 		{
 			putchar(*format);
+			len++;
 		}
 		format++;
 	}
 	va_end(argument);
+}
 
-	return (0);
+	return (len);
 }
