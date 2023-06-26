@@ -1,18 +1,16 @@
-#include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdarg.h>
 /**
  * _printf - function that prints everything
  * @format: pointer to specifier
  * @...: other input arguments
- *
  * Return: Always (0) success
  */
-int my_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
-	va_list arguments;
+	va_list args;
 
-	va_start(arguments, format);
+	va_start(args, format);
 
 	int count = 0;
 
@@ -23,12 +21,12 @@ int my_printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				putchar(va_arg(arguments, int));
+				putchar(va_arg(args, int));
 				count++;
 			}
 			else if (*format == 's')
 			{
-				char *s = va_arg(arguments, char *);
+				char *s = va_arg(args, char*);
 
 				while (*s)
 				{
@@ -50,6 +48,6 @@ int my_printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(arguments);
+	va_end(args);
 	return (count);
 }
