@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
-
 /**
  * _printf - function that produces output
  * according to a format
@@ -10,13 +9,14 @@
  *
  * Return: Always 0 success
  */
-
 int _printf(const char *format, ...)
 {
 	va_list argument;
 	int len = 0;
 
 	va_start(argument, format);
+
+	int length = 0;
 
 	while (*format != '\0')
 	{
@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 				break;
 
 			if (*format == 'c')
+<<<<<<< HEAD
 				printf("%c", va_arg(argument, int));
 			len++;
 
@@ -37,6 +38,14 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 				printf("%d", va_arg(argument, int));
 			len++;
+=======
+				putchar(va_arg(argument, int));
+			else if (*format == 's')
+				while (*format)
+					putchar(*format++);
+			else if (*format == '%')
+				putchar('%');
+>>>>>>> e8f649fc0fa40684838df389fe7c37ddf05850a1
 		}
 		else
 		{
@@ -44,9 +53,14 @@ int _printf(const char *format, ...)
 			len++;
 		}
 		format++;
+		length++;
 	}
 	va_end(argument);
+<<<<<<< HEAD
 }
 
 	return (len);
+=======
+	return (length);
+>>>>>>> e8f649fc0fa40684838df389fe7c37ddf05850a1
 }
