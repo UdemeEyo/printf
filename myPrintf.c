@@ -28,7 +28,7 @@ int my_printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				char *s = va_arg(arguments, char *)
+				char *s = va_arg(arguments, char *);
 
 				while (*s)
 				{
