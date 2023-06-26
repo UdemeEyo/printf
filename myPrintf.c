@@ -19,26 +19,28 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
+			switch (*format)
 			{
-				putchar(va_arg(args, int));
-				count++;
-			}
-			else if (*format == 's')
-			{
-				char *s = va_arg(args, char*);
-
-				while (*s)
-				{
-					putchar(*s);
-					s++;
+				case 'c':
+					putchar(va_arg(args, int));
 					count++;
-				}
-			}
-			else if (*format == '%')
-			{
-				putchar('%');
-				count++;
+					break;
+				case 's':
+					for (const char *s = va_arg(args, const char *); *s; s++)
+					{
+						putchar(*s);
+						count++;
+					}
+					break;
+				case '%':
+					putchar('%');
+					count++;
+					break;
+				default:
+					putchar('%');
+					putchar(*format);
+					count += 2;
+					break;
 			}
 		}
 		else
