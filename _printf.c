@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 		{
 			print_buffer(buffer, &buff_ind);
 			flags = flags_only(format, &i);
-			width = width(_onlyformat, &i, list);
+			width = width_only(format, &i, list);
 			precision = precision_only(format, &i, list);
 			size = size_only(format, &i);
 			++i;
