@@ -1,5 +1,9 @@
 #include "main.h"
 
+/***Functiom Declarations ***/
+unsigned long int convert_size_unsgnd(unsigned long int num, int size);
+int write_unsgnd(int fd, int i, char buffer[], int flags, int width, int precision, int size);
+
 /*** PRINT UNSIGNED NUMBER ***/
 /**
  * print_unsigned - print unsigned number

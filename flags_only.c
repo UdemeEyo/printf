@@ -14,7 +14,7 @@ int flags_only(const char *format, int *index)
 	const char FLAGS_CHARS[] = {'-', '+', '0', '#', ' ', '\0'};
 	const int FLAGS_VALUES[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
-	for (curr_Index = *index + 1; format[currI_ndex] != '\0'; curr_Index++)
+	for (curr_Index = *index + 1; format[curr_Index] != '\0'; curr_Index++)
 	{
 		for (i = 0; FLAGS_CHARS[i] != '\0'; i++)
 		{

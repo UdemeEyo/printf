@@ -21,13 +21,14 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
+		if (format[i] != '%' && *(format + 1) == 'r')
 		{
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[i], 1);*/
-			printed_chars++;
+			/* write(1, "%r" &format[i], 2);*/
+			printed_chars += 2;
+			i++;
 		}
 		else
 		{

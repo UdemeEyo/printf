@@ -96,6 +96,7 @@ int print_percent(va_list types, char buffer[],
 	return (write(1, "%%", 1));
 }
 
+unsigned long int convert_size_number(long int num, int size);
 /*** PRINT INT ***/
 /**
  * print_int - function that Prints integer

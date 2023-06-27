@@ -13,7 +13,7 @@ int precision_only(const char *format, int *i, va_list list)
 	int curr_index = *i + 1;
 	int precision = -1;
 
-	if (format[curr_inex] != '.')
+	if (format[curr_index] != '.')
 		return (precision);
 
 	precision = 0;
