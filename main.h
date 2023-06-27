@@ -79,7 +79,7 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Funciotns to handle other specifiers */
-int flags_only(const char *format, int *i);
+int flags_only(const char *format, int *index);
 int width_only(const char *format, int *i, va_list list);
 int precision_only(const char *format, int *i, va_list list);
 int size_only(const char *format, int *i);
