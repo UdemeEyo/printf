@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * get_flags - Calculate active flags.
- * @format: Format string.
- * @index: index in the format string.
+ * flags_only - calculate active flags
+ * @format: format string
+ * @index: index in format string
  *
  * Return: value of flags
  */
-int get_flags(const char *format, int *index)
+int flags_only(const char *format, int *index)
 {
 	int flags = 0;
 	int i, curr_Index;

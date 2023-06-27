@@ -3,9 +3,9 @@
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars.
+ * _printf - printf function
+ * @format: format
+ * Return: printed chars
  */
 int _printf(const char *format, ...)
 {
@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list);
-			size = get_size(format, &i);
+			flags = flags_only(format, &i);
+			width = width(_onlyformat, &i, list);
+			precision = precision_only(format, &i, list);
+			size = size_only(format, &i);
 			++i;
-			printed = handle_print(format, &i, list, buffer,
+			printed = print_handler(format, &i, list, buffer,
 				flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
@@ -53,9 +53,9 @@ int _printf(const char *format, ...)
 }
 
 /**
- * print_buffer - Prints the contents of the buffer if it exist
- * @buffer: Array of chars
- * @buff_ind: Index at which to add next char, represents the length.
+ * print_buffer - print contents of the buffer if it exist
+ * @buffer: array of chars
+ * @buff_ind: index at which to add next char, represents the length
  */
 void print_buffer(char buffer[], int *buff_ind)
 {

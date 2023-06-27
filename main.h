@@ -19,28 +19,28 @@
 #define S_SHORT 1
 
 /**
- * struct fmt - Struct op
+ * struct formt - Struct op
  *
- * @fmt: The format.
+ * @formt: The format.
  * @fn: The function associated.
  */
-struct fmt
+struct formt
 {
-	char fmt;
+	char formt;
 	int (*fn)(va_list, char[], int, int, int, int);
 };
 
 
 /**
- * typedef struct fmt fmt_t - Struct op
+ * typedef struct formt fmt_t - Struct op
  *
- * @fmt: The format.
- * @fm_t: The function associated.
+ * @formt: The format.
+ * @fm_type: The function associated.
  */
-typedef struct fmt fmt_t;
+typedef struct formt fmt_type;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
+int print_handler(const char *formt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
@@ -79,10 +79,10 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Funciotns to handle other specifiers */
-int get_flags(const char *format, int *i);
-int get_width(const char *format, int *i, va_list list);
-int get_precision(const char *format, int *i, va_list list);
-int get_size(const char *format, int *i);
+int flags_only(const char *format, int *i);
+int width_only(const char *format, int *i, va_list list);
+int precision_only(const char *format, int *i, va_list list);
+int size_only(const char *format, int *i);
 
 /*Function to print string in reverse*/
 int print_reverse(va_list types, char buffer[],
@@ -111,7 +111,7 @@ int is_printable(char);
 int append_hexa_code(char, char[], int);
 int is_digit(char);
 
-long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int num, int size);
+long int size_number_convert(long int num, int size);
+long int size_unsgnd_convert(unsigned long int num, int size);
 
 #endif /* MAIN_H */
